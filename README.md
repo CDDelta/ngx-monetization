@@ -1,27 +1,48 @@
-# NgxMonetization
+# ngx-monetization
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.1.
+Use the Web Monetization API in Angular!
 
-## Development server
+`ngx-monetization` helps you interact with the Web Monetization API with an observable-based API.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+The Web Monetization API is
+**a JavaScript browser API which allows the creation of a payment stream from the user agent to the website**, read more about it [here](https://webmonetization.org/).
 
-## Code scaffolding
+## Install
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+To use `ngx-monetization` in your project run:
 
-## Build
+```bash
+ng add ngx-monetization
+```
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+or install it via npm:
 
-## Running unit tests
+```bash
+npm install ngx-monetization --save
+```
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+and add your payment pointer to `index.html`, see [here](https://webmonetization.org/docs/getting-started).
 
-## Running end-to-end tests
+## Example Use
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+```typescript
+import { Component } from "@angular/core";
+import { MonetizationService } from "ngx-monetization";
 
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+@Component({
+  selector: "app-root",
+  template: `
+    <p>State: {{ monetization.state | async }}</p>
+    <ul>
+      <li *ngFor="let event of monetization.events | async">
+        {{ event | json }}
+      </li>
+    </ul>
+  `,
+})
+export class AppComponent {
+  constructor(public monetization: MonetizationService) {
+    monetization.setPaymentPointer("$wallet.example.com/alice");
+  }
+}
+```
