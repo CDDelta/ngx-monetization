@@ -55,5 +55,15 @@ To contribute to this library, clone it locally and run `npm install`.
 
 To build the library run:
 ```bash
-ng build ngx-monetization
+npm run build
+```
+
+To run tests run:
+```bash
+npm run test
+```
+
+To test the demo app run:
+```bash
+npm run start
 ```

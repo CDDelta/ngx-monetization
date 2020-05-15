@@ -3,10 +3,10 @@
   "version": "0.0.1",
   "schematics": "./schematics/collection.json",
   "scripts": {
-    "build": "../../node_modules/.bin/tsc -p tsconfig.schematics.json",
-    "copy:schemas": "cp --parents schematics/*/schema.json ../../dist/my-lib/",
-    "copy:files": "cp --parents -p schematics/*/files/** ../../dist/my-lib/",
-    "copy:collection": "cp schematics/collection.json ../../dist/my-lib/schematics/collection.json",
+    "build": "node ../../node_modules/typescript/bin/tsc -p tsconfig.schematics.json",
+    "copy:schemas": "cp --parents schematics/*/schema.json ../../dist/ngx-monetization/",
+    "copy:files": "cp --parents -p schematics/*/files/** ../../dist/ngx-monetization/",
+    "copy:collection": "cp schematics/collection.json ../../dist//schema/ngx-monetizationtics/collection.json",
     "postbuild": "npm run copy:schemas && npm run copy:files && npm run copy:collection"
   },
   "peerDependencies": {

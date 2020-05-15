@@ -17,7 +17,7 @@ jobs:
     - run: |
          npm install -g @angular/cli
          npm install
-         ng build ngx-monetization --prod
+         npm run build
          ng build e2e-app --prod --base-href="/ngx-monetization/"
     - uses: JamesIves/github-pages-deploy-action@releases/v2
       env:

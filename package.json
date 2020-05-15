@@ -3,9 +3,9 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
-    "build": "ng build",
-    "test": "ng test",
+    "start": "ng serve e2e-app",
+    "build": "ng build ngx-monetization --prod && cd projects/ngx-monetization && npm run build",
+    "test": "ng test ngx-monetization",
     "lint": "ng lint",
     "e2e": "ng e2e"
   },
