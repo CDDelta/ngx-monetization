@@ -1,6 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { NgxMonetizationComponent } from './ngx-monetization.component';
+import { NgxMonetizationComponent } from './monetization.component';
 
 describe('NgxMonetizationComponent', () => {
   let component: NgxMonetizationComponent;

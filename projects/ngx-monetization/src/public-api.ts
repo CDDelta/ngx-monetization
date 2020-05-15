@@ -2,6 +2,6 @@
  * Public API Surface of ngx-monetization
  */
 
-export * from './lib/ngx-monetization.service';
-export * from './lib/ngx-monetization.component';
-export * from './lib/ngx-monetization.module';
+export * from './lib/monetization.service';
+export * from './lib/monetization.component';
+export * from './lib/monetization.module';

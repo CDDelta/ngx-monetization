@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'lib-ngx-monetization',
@@ -7,14 +8,13 @@ import { Component, OnInit } from '@angular/core';
       ngx-monetization works!
     </p>
   `,
-  styles: [
-  ]
+  styles: [],
 })
 export class NgxMonetizationComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit(): void {
+  constructor() {
+    let a: Router = null;
+    a.events
   }
 
+  ngOnInit(): void {}
 }
