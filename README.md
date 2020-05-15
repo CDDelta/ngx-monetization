@@ -1,11 +1,13 @@
 # ngx-monetization
 
-Use the Web Monetization API in Angular!
+Web Monetization API for Angular!
 
 `ngx-monetization` helps you interact with the Web Monetization API with an observable-based API.
 
 The Web Monetization API is
 **a JavaScript browser API which allows the creation of a payment stream from the user agent to the website**, read more about it [here](https://webmonetization.org/).
+
+Check out the demo [here](https://cddelta.github.io/ngx-monetization/).
 
 ## Install
 
@@ -45,4 +47,13 @@ export class AppComponent {
     monetization.setPaymentPointer("$wallet.example.com/alice");
   }
 }
+```
+
+## Contributing
+
+To contribute to this library, clone it locally and run `npm install`.
+
+To build the library run:
+```bash
+ng build ngx-monetization
 ```
