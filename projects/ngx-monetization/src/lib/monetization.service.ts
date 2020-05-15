@@ -1,6 +1,7 @@
 import { DOCUMENT } from '@angular/common';
 import { Inject, Injectable } from '@angular/core';
-import { fromEvent, merge, Observable, empty } from 'rxjs';
+import { Meta } from '@angular/platform-browser';
+import { empty, fromEvent, merge, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { MonetizationEvent, MonetizationState } from 'types-wm';
 
@@ -8,10 +9,20 @@ import { MonetizationEvent, MonetizationState } from 'types-wm';
   providedIn: 'root',
 })
 export class MonetizationService {
-  public events: Observable<MonetizationEvent>;
-  public state: Observable<MonetizationState | undefined>;
+  /**
+   * An event stream for web monetization events.
+   */
+  public readonly events: Observable<MonetizationEvent>;
 
-  constructor(@Inject(DOCUMENT) private document: Document) {
+  /**
+   * An event stream for web monetization state changes.
+   */
+  public readonly state: Observable<MonetizationState>;
+
+  constructor(
+    @Inject(DOCUMENT) private document: Document,
+    private meta: Meta
+  ) {
     if (this.isAvailable()) {
       this.events = merge(
         fromEvent(this.document.monetization, 'monetizationpending'),
@@ -29,6 +40,16 @@ export class MonetizationService {
     }
   }
 
+  /**
+   * Sets the payment pointer on the document.
+   */
+  public setPaymentPointer(paymentPointer: string): void {
+    this.meta.updateTag({ name: 'monetization', content: paymentPointer });
+  }
+
+  /**
+   * Returns true if web monetization is available.
+   */
   public isAvailable(): boolean {
     return !!this.document && !!this.document.monetization;
   }
