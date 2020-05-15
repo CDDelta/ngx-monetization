@@ -12,6 +12,8 @@ export class AppComponent {
   public events$: Observable<MonetizationEvent[]>;
 
   constructor(public monetization: MonetizationService) {
+    monetization.setPaymentPointer("$wallet.example.com/alice");
+
     this.events$ = monetization.events.pipe(
       scan((acc, val) => {
         acc.push(val);

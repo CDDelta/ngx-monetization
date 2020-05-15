@@ -45,6 +45,14 @@
         State: {{monetization.state | async}}
       </div>
     </div>
+
+    <div class="card-container">
+      <div class="card">
+        <div *ngFor="let event of events$ | async">
+          {{event | json}}
+        </div>
+      </div>
+    </div>
   </ng-container>
 
   <!-- Terminal -->
