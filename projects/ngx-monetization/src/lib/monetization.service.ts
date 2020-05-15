@@ -7,6 +7,7 @@ import { MonetizationEvent, MonetizationState } from 'types-wm';
 
 export { MonetizationEvent, MonetizationState } from 'types-wm';
 
+/** @dynamic */
 @Injectable({
   providedIn: 'root',
 })
