@@ -9,7 +9,7 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-      - uses: AhsanAyaz/angular-deploy-gh-pages-actions
+      - uses: AhsanAyaz/angular-deploy-gh-pages-actions@v1.2.0
         with:
           github_access_token: ${{ secrets.ACCESS_TOKEN }}
           angular_project_dir: /projects/e2e-app
