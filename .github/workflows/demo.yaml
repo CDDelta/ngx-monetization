@@ -12,7 +12,7 @@ jobs:
       - uses: AhsanAyaz/angular-deploy-gh-pages-actions@v1.2.0
         with:
           github_access_token: ${{ secrets.ACCESS_TOKEN }}
-          angular_project_dir: /projects/e2e-app
+          angular_project_dir: projects/e2e-app
           base_href: /ngx-monetization/
           deploy_branch: master
           build_folder: dist/e2e-app
