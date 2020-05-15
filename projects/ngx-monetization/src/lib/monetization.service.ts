@@ -5,6 +5,8 @@ import { empty, fromEvent, merge, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { MonetizationEvent, MonetizationState } from 'types-wm';
 
+export { MonetizationEvent, MonetizationState } from 'types-wm';
+
 @Injectable({
   providedIn: 'root',
 })
