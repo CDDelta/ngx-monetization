@@ -45,9 +45,12 @@ export class MonetizationService {
 
   /**
    * Sets the payment pointer on the document.
+   * If a falsy value is provided, the old pointer is removed.
    */
   public setPaymentPointer(paymentPointer: string): void {
-    this.meta.updateTag({ name: 'monetization', content: paymentPointer });
+    if (paymentPointer)
+      this.meta.updateTag({ name: 'monetization', content: paymentPointer });
+    else this.meta.removeTag('name="monetization"');
   }
 
   /**
