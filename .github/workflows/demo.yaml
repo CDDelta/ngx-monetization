@@ -1,17 +1,27 @@
 name: Build and Deploy Demo
 on:
-  push:
-    branches:
+  push: 
+    branches:   
       - master
+
 jobs:
   build:
     runs-on: ubuntu-latest
-
     steps:
-      - uses: actions/checkout@v2
-      - uses: AhsanAyaz/angular-deploy-gh-pages-actions@v1.2.0
-        with:
-          github_access_token: ${{ secrets.ACCESS_TOKEN }}
-          base_href: /ngx-monetization/
-          deploy_branch: master
-          build_folder: dist/e2e-app
+    - uses: actions/checkout@v2
+      with:
+        persist-credentials: false
+    - uses: actions/setup-node@v1
+      with:
+        node-version: '10.x'
+    - run: |
+         npm install -g @angular/cli
+         npm install
+         ng build ngx-monetization
+         ng build --prod --base-href="/ngx-monetization/"
+    - uses: JamesIves/github-pages-deploy-action@releases/v2
+      env:
+        ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+        BASE_BRANCH: master
+        BRANCH: master
+        FOLDER: dist/e2e-app

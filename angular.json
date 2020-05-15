@@ -167,5 +167,5 @@
   "cli": {
     "analytics": false
   },
-  "defaultProject": "e2e-app"
+  "defaultProject": "ngx-monetization"
 }
