@@ -2,7 +2,7 @@ import { DOCUMENT } from '@angular/common';
 import { Inject, Injectable } from '@angular/core';
 import { Meta } from '@angular/platform-browser';
 import { empty, fromEvent, merge, Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { map, distinctUntilChanged } from 'rxjs/operators';
 import { MonetizationEvent, MonetizationState } from 'types-wm';
 
 /** @dynamic */
@@ -33,7 +33,8 @@ export class MonetizationService {
       );
 
       this.state = this.events.pipe(
-        map((_) => this.document.monetization.state)
+        map((_) => this.document.monetization.state),
+        distinctUntilChanged()
       );
     } else {
       this.events = empty();
