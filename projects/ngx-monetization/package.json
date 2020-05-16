@@ -1,9 +1,12 @@
 {
   "name": "ngx-monetization",
-  "version": "0.9.3",
+  "version": "0.9.4",
   "schematics": "./schematics/collection.json",
   "scripts": {
     "build": "node ../../node_modules/typescript/bin/tsc -p tsconfig.schematics.json"
+  },
+  "dependencies": {
+    "types-wm": "^1.1.0"
   },
   "peerDependencies": {
     "@angular/common": "^9.0.0",
