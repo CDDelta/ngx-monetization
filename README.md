@@ -1,5 +1,9 @@
 # ngx-monetization
 
+[![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/cddelta/ngx-monetization/issues)
+
+[![https://nodei.co/npm/ngx-monetization.png?downloads=true&downloadRank=true&stars=true](https://nodei.co/npm/ngx-monetization.png?downloads=true&downloadRank=true&stars=true)](https://www.npmjs.com/package/ngx-monetization)
+
 Web Monetization API for Angular!
 
 `ngx-monetization` helps you interact with the Web Monetization API with an observable-based API.
@@ -54,16 +58,19 @@ export class AppComponent {
 To contribute to this library, clone it locally and run `npm install`.
 
 To build the library run:
+
 ```bash
 npm run build
 ```
 
 To run tests run:
+
 ```bash
 npm run test
 ```
 
 To test the demo app run:
+
 ```bash
 npm run start
 ```
