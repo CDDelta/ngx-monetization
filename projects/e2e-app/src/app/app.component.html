@@ -34,27 +34,47 @@
     </svg>
   </div>
 
-  <ng-container *ngIf="monetization.isAvailable()">
-    <div class="card-container">
-      <div class="card">
-        State: {{monetization.state | async}}
-      </div>
-    </div>
-
-    <div class="card-container">
-      <div class="card">
-        <div *ngFor="let event of events$ | async">
-          {{event | json}}
-        </div>
-      </div>
-    </div>
-  </ng-container>
-
   <!-- Examples -->
   <h2>Examples</h2>
   <p>Here are some examples of what ngx-monetization can do.</p>
 
+  <div class="card-container">
+    <div class="card">
+      <h3>State:</h3>
+      <p>{{(monetization.state | async) || 'Unavailable'}}</p>
+    </div>
+  </div>
+
+  <div class="card-container">
+    <div class="card events-card">
+      <h3>Events:</h3>
+      <div class="events-list">
+        <ng-container *ngIf="events$ | async as events">
+          <p *ngIf="events.length === 0">No events yet</p>
+          <div *ngFor="let event of events$ | async">
+            {{event | json}}
+          </div>
+        </ng-container>
+      </div>
+    </div>
+  </div>
+
+  <div class="card-container">
+    <div class="card">
+      <h3>Paid Total:</h3>
+      <ng-container *ngIf="paidTotal$ | async as total">
+        <p *ngIf="total.amount > 0">{{total.formattedAmount}} {{total.currency}}</p>
+        <p *ngIf="total.amount === 0">No payment yet</p>
+      </ng-container>
+    </div>
+  </div>
+
+  <p>See <a href="https://webmonetization.org/docs/exclusive-content" target="_blank" rel="noopener">here</a> for more
+    detailed examples.</p>
+
   <!-- Terminal -->
+  <h2>Usage</h2>
+  <p>To get ngx-monetization, simply run the command below.</p>
   <div class="terminal">
     <pre>ng add ngx-monetization</pre>
   </div>
