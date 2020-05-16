@@ -1,6 +1,6 @@
 {
   "name": "ngx-monetization",
-  "version": "0.9.4",
+  "version": "0.9.6",
   "schematics": "./schematics/collection.json",
   "scripts": {
     "build": "node ../../node_modules/typescript/bin/tsc -p tsconfig.schematics.json"
