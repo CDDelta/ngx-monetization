@@ -1,8 +1,11 @@
 import { Component } from '@angular/core';
-import { MonetizationService, MonetizationEvent } from 'ngx-monetization';
+import {
+  MonetizationService,
+  MonetizationEvent,
+  MonetizationProgressEvent,
+} from 'ngx-monetization';
 import { Observable } from 'rxjs';
 import { scan, filter, startWith } from 'rxjs/operators';
-import { MonetizationProgressEvent } from 'types-wm';
 
 export interface PaidTotal {
   amount: number;
