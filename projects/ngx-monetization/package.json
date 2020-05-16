@@ -6,13 +6,14 @@
     "build": "node ../../node_modules/typescript/bin/tsc -p tsconfig.schematics.json",
     "copy:schemas": "cp --parents schematics/*/schema.json ../../dist/ngx-monetization/",
     "copy:files": "cp --parents -p schematics/*/files/** ../../dist/ngx-monetization/",
-    "copy:collection": "cp schematics/collection.json ../../dist/schema/ngx-monetizationtics/collection.json",
+    "copy:collection": "cp schematics/collection.json ../../dist/ngx-monetization/schematics/collection.json",
     "postbuild": "npm run copy:schemas && npm run copy:files && npm run copy:collection"
   },
   "peerDependencies": {
-    "@angular/common": "^9.1.7",
-    "@angular/core": "^9.1.7",
-    "@angular/platform-browser": "^9.1.7",
+    "@angular/common": "^9.0.0",
+    "@angular/core": "^9.0.0",
+    "@angular/cdk": "^9.0.0",
+    "@angular/platform-browser": "^9.0.0",
     "tslib": "^1.10.0",
     "types-wm": "^1.1.0"
   }

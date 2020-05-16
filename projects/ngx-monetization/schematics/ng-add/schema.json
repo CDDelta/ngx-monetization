@@ -1,0 +1,17 @@
+{
+  "properties": {
+    "project": {
+      "type": "string",
+      "description": "Name of the project.",
+      "$default": {
+        "$source": "projectName"
+      }
+    },
+    "paymentPointer": {
+      "type": "string",
+      "minLength": 1,
+      "default": "PLACEHOLDER_POINTER",
+      "x-prompt": "What is your payment pointer?"
+    }
+  }
+}
