@@ -1,24 +1,72 @@
-# NgxMonetization
+# ngx-monetization
 
-This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.7.
+Web Monetization API for Angular!
 
-## Code scaffolding
+`ngx-monetization` helps you interact with the Web Monetization API with an observable-based API.
 
-Run `ng generate component component-name --project ngx-monetization` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module --project ngx-monetization`.
-> Note: Don't forget to add `--project ngx-monetization` or else it will be added to the default project in your `angular.json` file. 
+The Web Monetization API is
+**a JavaScript browser API which allows the creation of a payment stream from the user agent to the website**, read more about it [here](https://webmonetization.org/).
 
-## Build
+Check out the demo [here](https://cddelta.github.io/ngx-monetization/).
 
-Run `ng build ngx-monetization` to build the project. The build artifacts will be stored in the `dist/` directory.
+## Install
 
-## Publishing
+To use `ngx-monetization` in your project run:
 
-After building your library with `ng build ngx-monetization`, go to the dist folder `cd dist/ngx-monetization` and run `npm publish`.
+```bash
+ng add ngx-monetization
+```
 
-## Running unit tests
+or install it via npm:
 
-Run `ng test ngx-monetization` to execute the unit tests via [Karma](https://karma-runner.github.io).
+```bash
+npm install ngx-monetization --save
+```
 
-## Further help
+and add your payment pointer to `index.html`, see [here](https://webmonetization.org/docs/getting-started).
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+## Example Use
+
+```typescript
+import { Component } from "@angular/core";
+import { MonetizationService } from "ngx-monetization";
+
+@Component({
+  selector: "app-root",
+  template: `
+    <p>State: {{ monetization.state | async }}</p>
+    <ul>
+      <li *ngFor="let event of monetization.events | async">
+        {{ event | json }}
+      </li>
+    </ul>
+  `,
+})
+export class AppComponent {
+  constructor(public monetization: MonetizationService) {
+    monetization.setPaymentPointer("$wallet.example.com/alice");
+  }
+}
+```
+
+## Contributing
+
+To contribute to this library, clone it locally and run `npm install`.
+
+To build the library run:
+
+```bash
+npm run build
+```
+
+To run tests run:
+
+```bash
+npm run test
+```
+
+To test the demo app run:
+
+```bash
+npm run start
+```

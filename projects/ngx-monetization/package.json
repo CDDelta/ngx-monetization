@@ -1,6 +1,6 @@
 {
   "name": "ngx-monetization",
-  "version": "0.0.1",
+  "version": "0.9.1",
   "schematics": "./schematics/collection.json",
   "scripts": {
     "build": "node ../../node_modules/typescript/bin/tsc -p tsconfig.schematics.json"
@@ -12,5 +12,15 @@
     "@angular/platform-browser": "^9.0.0",
     "tslib": "^1.10.0",
     "types-wm": "^1.1.0"
-  }
+  },
+  "keywords": [
+    "angular",
+    "web-monetization",
+    "typescript"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/CDDelta/ngx-monetization/issues"
+  },
+  "homepage": "https://github.com/CDDelta/ngx-monetization"
 }

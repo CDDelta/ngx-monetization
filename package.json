@@ -7,7 +7,7 @@
     "build": "ng build ngx-monetization --prod && cd projects/ngx-monetization && npm run build",
     "test": "ng test ngx-monetization",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "publish": "npm run build && cd dist/ngx-monetization && npm publish"
   },
   "private": true,
   "dependencies": {
