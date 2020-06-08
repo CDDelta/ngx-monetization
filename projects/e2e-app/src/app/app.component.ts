@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
+import { FormControl } from '@angular/forms';
 import {
   MonetizationService,
   MonetizationEvent,
   MonetizationProgressEvent,
 } from 'ngx-monetization';
 import { Observable } from 'rxjs';
-import { scan, filter, startWith } from 'rxjs/operators';
+import { scan, filter, startWith, debounceTime } from 'rxjs/operators';
 
 export interface PaidTotal {
   amount: number;
@@ -22,8 +23,14 @@ export class AppComponent {
   public events$: Observable<MonetizationEvent[]>;
   public paidTotal$: Observable<PaidTotal>;
 
+  public paymentPointerControl = new FormControl('$wallet.example.com/alice');
+
   constructor(public monetization: MonetizationService) {
-    monetization.setPaymentPointer('$wallet.example.com/alice');
+    this.monetization.setPaymentPointer(this.paymentPointerControl.value);
+
+    this.paymentPointerControl.valueChanges
+      .pipe(debounceTime(1000))
+      .subscribe((pointer) => this.monetization.setPaymentPointer(pointer));
 
     this.events$ = monetization.events.pipe(
       scan((eventsList, e) => {

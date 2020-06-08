@@ -107,6 +107,15 @@ svg.material-icons:not(:last-child) {
   margin-left: 60px;
 }
 
+.card.pointer-card {
+  input {
+    width: 100%;
+    margin-top: 0.8rem;
+
+    text-align: center;
+  }
+}
+
 .events-list {
   width: 100%;
   height: 200px;
